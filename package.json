@@ -25,12 +25,12 @@
       "node_modules/**/*"
     ],
     "directories": {
-      "output": "dist"
+      "output": "dist_1.0.2"
     },
     "publish": {
       "provider": "github",
-      "owner": "khavy",
-      "repo": "KiemTraMonHocRepo"
+      "owner": "khavy1203",
+      "repo": "electronApp"
     },
     "win": {
       "target": [
