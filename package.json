@@ -9,8 +9,7 @@
   },
   "author": "Khả Vy ( fb: nhoke.bola )",
   "license": "ISC",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "electron-builder": "^24.6.0",
     "electron": "^33.2.1"
@@ -31,10 +30,14 @@
       "icon": "frontend/build/icon.ico"
     },
     "nsis": {
-      "oneClick": true,
-      "allowToChangeInstallationDirectory": false,
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true
+      "oneClick": false,                    
+      "allowToChangeInstallationDirectory": true, 
+      "deleteAppDataOnUninstall": true,    
+      "createDesktopShortcut": true,       
+      "createStartMenuShortcut": true,     
+      "runAfterFinish": true,              
+      "allowElevation": true,             
+      "include": "build/installer.nsh"    
     }
   }
 }
