@@ -33,6 +33,8 @@ app.on('ready', () => {
     console.log('F5 shortcut is disabled.');
   });
 
+
+
   // Kiểm tra cập nhật
   autoUpdater.checkForUpdates();
 
@@ -67,6 +69,13 @@ app.on('ready', () => {
       autoUpdater.quitAndInstall();
     }
   });
+
+  autoUpdater.on('error', (err) => {
+    console.error('Lỗi trong quá trình cập nhật:', err);
+    dialog.showErrorBox('Lỗi cập nhật', `Không thể tải xuống bản cập nhật. Chi tiết lỗi:\n${err.message}`);
+  });
+
+
 });
 
 // Đóng ứng dụng khi tất cả cửa sổ bị đóng
