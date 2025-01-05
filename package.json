@@ -1,6 +1,6 @@
 {
   "name": "checksubject",
-  "version": "v1.0.4",
+  "version": "v1.0.5",
   "description": "Reactjs typescript build Electron",
   "main": "main.js",
   "scripts": {
@@ -25,7 +25,7 @@
       "node_modules/**/*"
     ],
     "directories": {
-      "output": "dist_1.0.4"
+      "output": "dist_1.0.5"
     },
     "publish": {
       "provider": "github",
@@ -33,11 +33,12 @@
       "repo": "electronApp"
     },
     "win": {
-      "target": [
-        "nsis"
+      "arch": [
+        "x64",
+        "ia32"
       ],
       "icon": "frontend/build/icon.ico",
-      "artifactName": "${productName}-Setup-${version}.exe"
+      "artifactName": "${productName}-Setup-${version}-${arch}.exe"
     },
     "nsis": {
       "oneClick": false,
