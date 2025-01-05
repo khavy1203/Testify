@@ -55,19 +55,15 @@ app.on('ready', () => {
       });
   });
 
-  // Khi tải xuống hoàn tất
-  autoUpdater.on('update-downloaded', () => {
-    const userResponse = dialog.showMessageBoxSync(mainWindow, {
+  autoUpdater.on('update-downloaded', (info) => {
+    console.log('Thông tin bản cập nhật:', info);
+    dialog.showMessageBoxSync(mainWindow, {
       type: 'info',
       title: 'Cập nhật sẵn sàng',
-      message: 'Bản cập nhật đã sẵn sàng để cài đặt. Ứng dụng sẽ khởi động lại để hoàn tất quá trình cài đặt.',
+      message: `Bản cập nhật đã sẵn sàng để cài đặt. Đường dẫn file: ${info.filePath}`,
       buttons: ['Cài đặt ngay', 'Để sau'],
     });
-
-    if (userResponse === 0) {
-      // Người dùng chọn "Cài đặt ngay"
-      autoUpdater.quitAndInstall();
-    }
+    autoUpdater.quitAndInstall();
   });
 
   autoUpdater.on('error', (err) => {
