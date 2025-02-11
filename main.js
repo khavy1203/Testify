@@ -11,6 +11,7 @@ app.on('ready', () => {
       contextIsolation: true, // Tăng cường bảo mật
       nodeIntegration: false, // Tắt tích hợp Node.js trong renderer process
     },
+ 	preload: path.join(__dirname, 'preload.js'), // Đường dẫn tới preload script
   });
 
   // Load file index.html từ thư mục build của ReactJS
@@ -73,6 +74,37 @@ app.on('ready', () => {
 
 
 });
+
+// ipcMain.on('print', (event, content) => {
+//   // Tạo một cửa sổ ẩn để thực hiện in
+//   const printWindow = new BrowserWindow({
+//     show: false,
+//     webPreferences: {
+//       contextIsolation: true,
+//       nodeIntegration: false,
+//     },
+//   });
+
+//   // Tải nội dung cần in
+//   printWindow.loadURL(`data:text/html;charset=utf-8,${encodeURIComponent(content)}`);
+
+//   // Khi cửa sổ sẵn sàng, thực hiện lệnh in
+//   printWindow.webContents.once('did-finish-load', () => {
+//     printWindow.webContents.print(
+//       {
+//         silent: true, // In tự động, không hiển thị hộp thoại
+//         printBackground: true, // In kèm nền
+//       },
+//       (success, errorType) => {
+//         if (!success) {
+//           console.error('Print failed:', errorType);
+//         }
+//         printWindow.close(); // Đóng cửa sổ sau khi in
+//       }
+//     );
+//   });
+// });
+
 
 // Đóng ứng dụng khi tất cả cửa sổ bị đóng
 app.on('window-all-closed', () => {

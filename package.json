@@ -1,10 +1,10 @@
 {
   "name": "checksubject",
-  "version": "v1.0.5",
+  "version": "v1.0.10",
   "description": "Reactjs typescript build Electron",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
+    "start": "electron ./main.js",
     "dist": "electron-builder"
   },
   "author": "Khả Vy ( fb: nhoke.bola )",
@@ -25,7 +25,7 @@
       "node_modules/**/*"
     ],
     "directories": {
-      "output": "dist_1.0.5"
+      "output": "dist_1.0.10"
     },
     "publish": {
       "provider": "github",
@@ -33,9 +33,14 @@
       "repo": "electronApp"
     },
     "win": {
-      "arch": [
-        "x64",
-        "ia32"
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
       ],
       "icon": "frontend/build/icon.ico",
       "artifactName": "${productName}-Setup-${version}-${arch}.exe"
