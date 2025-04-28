@@ -1,6 +1,6 @@
 {
   "name": "checksubject",
-  "version": "v1.0.12",
+  "version": "v1.0.13",
   "description": "Reactjs typescript build Electron",
   "main": "main.js",
   "scripts": {
@@ -22,10 +22,11 @@
     "files": [
       "main.js",
       "frontend/build/**/*",
-      "node_modules/**/*"
+      "node_modules/**/*",
+      "preload.js"
     ],
     "directories": {
-      "output": "dist_1.0.12"
+      "output": "v1.0.13_buildforTeacher"
     },
     "publish": {
       "provider": "github",
@@ -42,7 +43,7 @@
           ]
         }
       ],
-      "icon": "frontend/build/icon.ico",
+      "icon": "frontend/build/favicon.ico",
       "artifactName": "${productName}-Setup-${version}-${arch}.exe"
     },
     "nsis": {

@@ -50,13 +50,14 @@ app.on('ready', () => {
     }
   });
 
-  ipcMain.on('print', (event, { content, printerName }) => {
+  ipcMain.on('print', (event, { content, printerName, silent = true }) => {
     try {
       const printWindow = new BrowserWindow({
         show: false,
         webPreferences: {
           nodeIntegration: false,
           contextIsolation: true,
+          sandbox:true
         },
       });
 
@@ -72,7 +73,7 @@ app.on('ready', () => {
 
           const printOptions = {
             deviceName: printerName,
-            silent: true, // Hiển thị hộp thoại in để kiểm tra và chọn 2 mặt
+            silent: silent, // Hiển thị hộp thoại in để kiểm tra và chọn 2 mặt
             pageSize: 'A4',
             duplex: duplex === 'Simplex' ? 'Simplex' : 'Duplex', // Chọn Simplex (1 mặt) hoặc Duplex (2 mặt)
             duplexMode: duplex === 'Simplex' ? undefined : 'longEdge',
